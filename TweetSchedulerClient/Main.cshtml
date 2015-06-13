@@ -1,0 +1,111 @@
+﻿@inherits System.Web.Mvc.WebViewPage<ScheduleSetupModel>
+@using System.Web.Mvc.Html
+@using TweetSchedulerClient
+
+@{
+    var ToTimeString = new Func<int,string>(i => {var str = i.ToString();
+       return str.Length == 1 ? "0"+str : str;});
+    
+    var hours = new []{12}.Concat(Enumerable.Range(1, 11))
+        .Select(h => new System.Web.Mvc.SelectListItem { Selected = h == 12, Text = ToTimeString(h) })
+        .ToList();
+
+    var minutes = Enumerable.Range(0, 60)
+        .Select(m => new System.Web.Mvc.SelectListItem { Selected = m == 0, Text = ToTimeString(m) })
+        .ToList();
+        
+    var amPm = new List<System.Web.Mvc.SelectListItem>
+    {
+        new System.Web.Mvc.SelectListItem { Selected = true, Text = "AM"},
+        new System.Web.Mvc.SelectListItem { Text = "PM"},
+    };
+
+    var times = string.Join(", ", Model.Times.Select(t => t.Hour + ":" + t.Minute + " " + t.AmPm));
+} 
+
+    <!DOCTYPE HTML>
+
+    <html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>Setup and View Tweet Schedules</title>
+        <style>
+            table, th, td {
+                border: 1px solid black;
+                border-collapse: collapse;
+            }
+
+            th, td {
+                padding: 10px;
+            }
+
+            .button {
+              font: bold 11px Arial;
+              text-decoration: none;
+              background-color: #EEEEEE;
+              color: #333333;
+              padding: 2px 6px 2px 6px;
+              border-top: 1px solid #CCCCCC;
+              border-right: 1px solid #333333;
+              border-bottom: 1px solid #333333;
+              border-left: 1px solid #CCCCCC;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            @{ Html.BeginForm(); }
+            @{
+                for (int i = 0; i < Model.Times.Count; i++)
+                {
+                    @Html.HiddenFor(m => m.Times[i].Hour);
+                    @Html.HiddenFor(m => m.Times[i].Minute);
+                    @Html.HiddenFor(m => m.Times[i].AmPm);
+                }
+            }
+            <table border="1">
+                <tr>
+                    <td colspan="8" style="text-align:center">Create a New Schedule</td>
+                </tr>
+                <tr>
+                    <td rowspan="2">Days of the Week</td>
+                    <td>@Html.Label("Sunday")</td>
+                    <td>@Html.Label("Monday")</td>
+                    <td>@Html.Label("Tuesday")</td>
+                    <td>@Html.Label("Wednesday")</td>
+                    <td>@Html.Label("Thursday")</td>
+                    <td>@Html.Label("Friday")</td>
+                    <td>@Html.Label("Saturday")</td>
+                </tr>
+                <tr>
+                    <td style="text-align:center">@Html.CheckBoxFor(m => m.Sunday)</td>
+                    <td style="text-align:center">@Html.CheckBoxFor(m => m.Monday)</td>
+                    <td style="text-align:center">@Html.CheckBoxFor(m => m.Tuesday)</td>
+                    <td style="text-align:center">@Html.CheckBoxFor(m => m.Wednesday)</td>
+                    <td style="text-align:center">@Html.CheckBoxFor(m => m.Thursday)</td>
+                    <td style="text-align:center">@Html.CheckBoxFor(m => m.Friday)</td>
+                    <td style="text-align:center">@Html.CheckBoxFor(m => m.Saturday)</td>
+                </tr>
+                <tr>
+                    <td>Time of Day</td>
+                    <td colspan="7">
+                        @Html.DropDownListFor(m => m.Hours, hours) : @Html.DropDownListFor(m => m.Minutes, minutes) @Html.DropDownListFor(m => m.AmPm, amPm)
+                        <input type="submit" name="AddTime" value="+" />
+                        &nbsp;&nbsp;&nbsp;
+                        @Html.LabelFor(m => m.Times, times)
+                    </td>
+                </tr>
+                <tr>
+                    <td>Tweets</td>
+                    <td colspan="7">
+                        @Html.TextAreaFor(m => m.Tweets, 10, 100, new { })
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="8" style="text-align:right; border-color:white; padding-right:0"><input type="submit" name="AddSchedule" value="Create" /></td>
+                </tr>
+            </table>
+            @{ Html.EndForm(); }
+        </div>
+    </body>
+</html>

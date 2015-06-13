@@ -1,0 +1,45 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureApiCaller", "AzureApiCaller\AzureApiCaller.csproj", "{D51F3CB1-77FF-4A61-8531-42E8E95D27E3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwitterApiCaller", "TwitterApiCaller\TwitterApiCaller.csproj", "{17431A84-C7AC-4ACA-BD01-034271F95174}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TweetSchedulerClient", "TweetSchedulerClient\TweetSchedulerClient.csproj", "{276EEC7E-269D-49E8-8BFD-9BB8FD6DEDC2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TweetSchedulerServer", "TweetSchedulerServer\TweetSchedulerServer.csproj", "{A4B5F479-79BB-408A-B090-C2961D655D91}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0FA33646-D9E8-48F5-8D42-811EA9D4C436}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D51F3CB1-77FF-4A61-8531-42E8E95D27E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D51F3CB1-77FF-4A61-8531-42E8E95D27E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D51F3CB1-77FF-4A61-8531-42E8E95D27E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D51F3CB1-77FF-4A61-8531-42E8E95D27E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17431A84-C7AC-4ACA-BD01-034271F95174}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17431A84-C7AC-4ACA-BD01-034271F95174}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17431A84-C7AC-4ACA-BD01-034271F95174}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17431A84-C7AC-4ACA-BD01-034271F95174}.Release|Any CPU.Build.0 = Release|Any CPU
+		{276EEC7E-269D-49E8-8BFD-9BB8FD6DEDC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{276EEC7E-269D-49E8-8BFD-9BB8FD6DEDC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{276EEC7E-269D-49E8-8BFD-9BB8FD6DEDC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{276EEC7E-269D-49E8-8BFD-9BB8FD6DEDC2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4B5F479-79BB-408A-B090-C2961D655D91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4B5F479-79BB-408A-B090-C2961D655D91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4B5F479-79BB-408A-B090-C2961D655D91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4B5F479-79BB-408A-B090-C2961D655D91}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
